@@ -1,0 +1,20 @@
+{
+  "name": "social",
+  "version": "1.0.0",
+  "description": "Social is an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackpres/Social.git"
+  },
+  "author": "hackpres",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hackpres/Social/issues"
+  },
+  "homepage": "https://github.com/hackpres/Social#readme"
+}
