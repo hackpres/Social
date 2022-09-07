@@ -17,39 +17,36 @@ const userController = {
     getUser(req, res) {
         Users.findOne({ _id: req.params.userId })
             .select('-__v')
-            .then((userData) =>
-                !userData
+            .then((dbUserData) =>
+                !dbUserData
                     ? res.status(404).json({ message: "No user found with provided ID" })
-                    : res.json(userData)
+                    : res.json(dbUserData)
             )
             .catch((err) => res.status(500).json(err));
     },
     //update user by ID
     updateUser(req, res) {
         Users.findOneAndUpdate(
-            { _id: req.params.id },
+            { _id: req.params.userId },
             { $set: req.body },
             { runValidators: true, new: true }
         )
-            .then((userData) =>
-                !userData
+            .then((dbUserData) =>
+                !dbUserData
                     ? res.status(404).json({ message: 'No user found with provided ID' })
-                    : res.json(userData)
+                    : res.json(dbUserData)
             )
-            .catch((err) => {
-                console.log(err);
-                res.status(500).json(err);
-            });
+            .catch((err) => res.status(500).json(err));
     },
     //delete user by ID
     deleteUser(req, res) {
             //delete users Thoughts first
-        Thoughts.deleteMany({ _id: params.id})
+        Thoughts.deleteMany({ _id: params.thoughtId })
         .then(() => {
                 //then delete user
-            Users.findOneAndDelete({ _id: req.params.id })
-            .then((userData) =>
-                !userData
+            Users.findOneAndDelete({ _id: req.params.userId })
+            .then((dbUserData) =>
+                !dbUserData
                     ? res.status(404).json({ message: 'No user found with provided ID' })
                     : res.json({ message: 'User successfully deleted!' })
             )
@@ -59,14 +56,14 @@ const userController = {
     //delete a friend
     deleteFriend(req, res) {
         Users.findOneAndUpdate(
-            { _id: req.params.id },
+            { _id: req.params.userId },
             { $pull: { friends: params.friendId } },
             { runValidators: true, new: true }
         )
-        .then((userData) =>
-        !userData
+        .then((dbUserData) =>
+        !dbUserData
             ? res.status(404).json({ message: 'No user found with provided ID' })
-            : res.json(userData)
+            : res.json(dbUserData)
         )
         .catch((err) => res.status(500).json(err));
     }
