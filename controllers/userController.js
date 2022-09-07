@@ -1,4 +1,4 @@
-const { Users, Thoughts } = require('../models');
+const { Users, Thoughts, User } = require('../models');
 
 const userController = {
     //create new user
@@ -51,6 +51,20 @@ const userController = {
                     : res.json({ message: 'User successfully deleted!' })
             )
         })
+        .catch((err) => res.status(500).json(err));
+    },
+    //create a friend
+    addFriend(req, res) {
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $push: { friends: req.params.friendId } },
+            { runValidators: true, new: true }
+        )
+        .then((dbUserData) =>
+            !dbUserData
+                ? res.status(404).json({ message: 'No User found with provided ID' })
+                : res.json(dbUserData)
+        )
         .catch((err) => res.status(500).json(err));
     },
     //delete a friend
