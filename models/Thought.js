@@ -1,16 +1,44 @@
-const { Schema, model } = require('mongoose');
-const ReactionSchema = require('./Reaction');
+const { Schema, model, Types } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
+
+const ReactionSchema = new Schema(
+    {
+        reactionId: {
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId()
+        },
+        reactionBody: {
+            type: String,
+            required: true,
+            match: [/^.{1,280}$/, 'Reaction must be between 1 and 280 characters.']
+        },
+        username: {
+            type: String,
+            required: true
+        },
+        createdAt: {
+            type: String,
+            default: dateFormat(new Date()),
+        }
+    },
+    {
+        toJSON: {
+            getters: true
+        },
+        id: false
+    }
+);
 
 const ThoughtSchema = new Schema(
     {
         thoughtText: {
             type: String,
             required: true,
-            match: [/^[a-zA-Z]{1,280}$/, 'Thought must be between 1 and 280 characters.']
+            match: [/^.{1,280}$/, 'Thought must be between 1 and 280 characters.']
         },
         createdAt: {
-            type: Date,
-            default: Date.now().toLocaleString(),
+            type: String,
+            default: dateFormat(new Date()),
         },
         username: {
             type: String,
@@ -27,8 +55,10 @@ const ThoughtSchema = new Schema(
     }
 );
 
-ThoughtSchema.virtual('reactionCount').get(() => this.reactions.length);
+ThoughtSchema.virtual('reactionCount').get(function () {
+    return  this.reactions.length
+});
 
-const Thoughts = model('Thoughts', ThoughtSchema);
+const Thought = model('thought', ThoughtSchema);
 
-module.exports = Thoughts;
+module.exports = Thought;

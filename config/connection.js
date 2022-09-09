@@ -1,8 +1,10 @@
-const { connect, connection } = require('mongoose');
+const mongoose = require('mongoose');
 
-connect('mongodb://localhost/social', {
-    userNewUrlParser: true,
+mongoose.connect('mongodb://127.0.0.1:27017/social', {
+    useNewUrlParser: true,
     useUnifiedTopology: true,
 });
 
-module.exports = connection;
+mongoose.set('debug', true);
+
+module.exports = mongoose.connection;
