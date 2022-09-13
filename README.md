@@ -8,9 +8,6 @@ SOCIAL is an API for a social network web application where users can share thei
 
     The motivation behind SOCIAL was simply to practice building an API route backend using NoSQL.
 
-<img src="./assets/img/desc.png" width="800"/><br/>
-<img src="./assets/img/desc2.png" width="800"/>
-
 ## Table of Contents
 
 * **[Installation](#installation)**<br />
@@ -30,24 +27,24 @@ npm i
 <a name="usage"/>
 Simply run the command `npm start` to spin up the server. Then, using a third party application like "Postman" or "Insomnia" you will be able to interact with the database and test the API routes, via your localhost on port  3001.<br/>
 
-User-routes:
-<img src="./assets/img/createUser.png" width="800"/><br/>
-<img src="./assets/img/getUsers.png" width="800"/><br/>
-<img src="./assets/img/getUser.png" width="800"/><br/>
-<img src="./assets/img/updateUser.png" width="800"/><br/>
-<img src="./assets/img/deleteUser.png" width="800"/><br/>
-Thought-routes:
-<img src="./assets/img/createThought.png" width="800"/><br/>
-<img src="./assets/img/getThoughts.png" width="800"/><br/>
-<img src="./assets/img/getThought.png" width="800"/><br/>
-<img src="./assets/img/updateThought.png" width="800"/><br/>
-<img src="./assets/img/deleteThought.png" width="800"/><br/>
-Friend-routes:
-<img src="./assets/img/addFriend.png" width="800"/><br/>
-<img src="./assets/img/deleteFriend.png" width="800"/><br/>
-Reaction-routes:
-<img src="./assets/img/createReaction.png" width="800"/><br/>
-<img src="./assets/img/deleteReaction.png" width="800"/><br/>
+User-routes:<br/>
+<img src="./assets/createUser.png" width="600"/><br/>
+<img src="./assets/getUsers.png" width="600"/><br/>
+<img src="./assets/getUser.png" width="600"/><br/>
+<img src="./assets/updateUser.png" width="600"/><br/>
+<img src="./assets/deleteUser.png" width="600"/><br/>
+Thought-routes:<br/>
+<img src="./assets/createThought.png" width="600"/><br/>
+<img src="./assets/getThoughts.png" width="600"/><br/>
+<img src="./assets/getThought.png" width="600"/><br/>
+<img src="./assets/updateThought.png" width="600"/><br/>
+<img src="./assets/deleteThought.png" width="600"/><br/>
+Friend-routes:<br/>
+<img src="./assets/addFriend.png" width="600"/><br/>
+<img src="./assets/deleteFriend.png" width="600"/><br/>
+Reaction-routes:<br/>
+<img src="./assets/createReaction.png" width="600"/><br/>
+<img src="./assets/deleteReaction.png" width="600"/><br/>
 
 ### License
 <a name="license"/>
